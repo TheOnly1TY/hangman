@@ -3,4 +3,13 @@
 
 @theme {
   --font-display: "Mouse Memoirs", sans-serif;
+
+  --color-dark-navy: #261676;
+  --color-blue: #2463ff;
+
+  --text-SM: 32px;
+  --text-MD: 88px;
+  --text-LG: 136px;
+
+  --color-linear: linear-gradient(to bottom, #344aba, #001479);
 }

@@ -1,7 +1,12 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { MainMenu } from "./pages/MainMenu";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold font-display text-center">
-      Hangman Game
-    </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainMenu />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
