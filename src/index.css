@@ -12,4 +12,11 @@
   --text-LG: 136px;
 
   --color-linear: linear-gradient(to bottom, #344aba, #001479);
+
+  --leading-default: 120%;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 8px #243041;
+  color: transparent;
 }
