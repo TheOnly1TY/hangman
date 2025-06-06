@@ -1,15 +1,15 @@
 import { BackButton } from "../components/BackButton";
 import Data from "../../data.json";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Category() {
+  const categories = Object.keys(Data.categories);
   const navigate = useNavigate();
 
   const handleNavigate = (category) => {
-    console.log(category);
     navigate(`${category}`);
   };
-  const categories = Object.keys(Data.categories);
+
   return (
     <>
       <header className="md:relative flex items-center justify-between md:justify-center py-15">

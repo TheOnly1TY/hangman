@@ -21,16 +21,9 @@
   color: transparent;
 }
 progress {
-  width: 240px;
-  height: 31px;
   -webkit-appearance: none;
-  appearance: none;
-  border: none;
-  border-radius: 999px;
-  background-color: transparent;
 }
 
-/* Outer background bar */
 progress::-webkit-progress-bar {
   background-color: white;
   border-radius: 999px;
@@ -38,6 +31,14 @@ progress::-webkit-progress-bar {
   position: relative;
 }
 
-/* The filled part (shows the remaining value) */
 progress::-webkit-progress-value {
+  border: 4px solid white;
+  border-radius: 999px;
+  background-color: #261676;
+}
+
+@media (width >= 48rem) {
+  progress::-webkit-progress-value {
+    border: 8px solid white;
+  }
 }
