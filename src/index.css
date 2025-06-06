@@ -20,3 +20,24 @@
   -webkit-text-stroke: 8px #243041;
   color: transparent;
 }
+progress {
+  width: 240px;
+  height: 31px;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  background-color: transparent;
+}
+
+/* Outer background bar */
+progress::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* The filled part (shows the remaining value) */
+progress::-webkit-progress-value {
+}
