@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Data from "../../../data.json";
 import {
-  handleCloseModal,
+  handleIsMenuOpen,
   initializeGame,
   updateGameResult,
 } from "./gameSlice";
@@ -68,7 +68,9 @@ export function InGame() {
       {/* WIN OR LOSE MODEL  */}
       {gameResult && (
         <Modal actionLabel="Play Again" onAction={() => handlePlayAgain()}>
-          <img src={healthUsedUp ? "/YouLose-text.svg" : "/YouWin-text.svg"} />
+          <h1 className="text-[94px] md:text-[134px] leading-none font-normal -tracking-[0.5%] text-gradient-stroke">
+            {healthUsedUp ? "You Lose" : "You Win"}
+          </h1>
         </Modal>
       )}
 
@@ -76,9 +78,11 @@ export function InGame() {
       {isMenuOpen && (
         <Modal
           actionLabel="Continue"
-          onAction={() => dispatch(handleCloseModal(false))}
+          onAction={() => dispatch(handleIsMenuOpen(false))}
         >
-          <img src="/Paused-text.svg" />
+          <h1 className="text-[94px] md:text-[134px] leading-none font-normal -tracking-[0.5%] text-gradient-stroke">
+            Paused
+          </h1>
         </Modal>
       )}
     </section>

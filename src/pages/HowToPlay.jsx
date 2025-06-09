@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { BackButton } from "../components/BackButton";
+import { BackAndMenuButton } from "../components/BackAndMenuButton";
 
 const howToPlaySteps = [
   {
@@ -31,15 +31,15 @@ export function HowToPlay() {
     <section className="bg-[url(/background-mobile-dark.svg)] md:bg-[url(/background-tablet-dark.svg)] lg:bg-[url(/background-desktop-dark.svg)] bg-center bg-cover bg-no-repeat min-h-screen">
       <div className="px-[1.5rem] md:max-w-[800px] lg:max-w-[1216px] mx-auto font-display">
         <header className="md:relative flex items-center justify-between md:justify-center py-15">
-          <BackButton onAction={handleNavigateBack}>
+          <BackAndMenuButton onAction={handleNavigateBack}>
             <img
               src="/icon-back.svg"
               className="w-[17.5px] md:w-[27.91px] lg:w-auto"
             />
-          </BackButton>
-          <figure className="w-[185px] md:w-[343px] lg:w-auto">
-            <img src="/How to Play.svg" alt="text-icon" />
-          </figure>
+          </BackAndMenuButton>
+          <h1 className="text-5xl md:text-[6.5rem] lg:text-[8.5rem] leading-none font-normal -tracking-[0.5%] text-gradient-stroke">
+            How to Play
+          </h1>
         </header>
 
         <ul className="flex justify-center items-stretch flex-col lg:flex-row gap-8 pb-20">

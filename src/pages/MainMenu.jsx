@@ -5,7 +5,7 @@ import { PlayButton } from "../components/PlayButton";
 
 export function MainMenu() {
   const navigate = useNavigate();
-  const handleClick = () => {
+  const handleNavigateSteps = () => {
     navigate("/guide");
   };
   return (
@@ -16,8 +16,8 @@ export function MainMenu() {
           <PlayButton />
           <ActionButton
             text="How To Play"
-            styles="w-[226px]"
-            onAction={handleClick}
+            styles="w-[14.125rem]"
+            onAction={handleNavigateSteps}
           />
         </div>
       </div>

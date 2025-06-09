@@ -1,4 +1,4 @@
-import { BackButton } from "../components/BackButton";
+import { BackAndMenuButton } from "../components/BackAndMenuButton";
 import Data from "../../data.json";
 import { useNavigate } from "react-router-dom";
 
@@ -16,15 +16,15 @@ export function Category() {
   return (
     <>
       <header className="md:relative flex items-center justify-between md:justify-center py-15">
-        <BackButton onAction={handleNavigateBack}>
+        <BackAndMenuButton onAction={handleNavigateBack}>
           <img
             src="/icon-back.svg"
             className="w-[17.5px] md:w-[27.91px] lg:w-auto"
           />
-        </BackButton>
-        <figure className="w-[185px] md:w-[343px] lg:w-auto">
-          <img src="/category-text.svg" alt="category-text" />
-        </figure>
+        </BackAndMenuButton>
+        <h1 className="text-5xl md:text-[6.5rem] lg:text-[8.5rem] leading-none font-normal -tracking-[0.5%] text-gradient-stroke">
+          Pick a Category
+        </h1>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center lg:gap-x-8 md:gap-8 gap-y-4 lg:gap-y-[50px] pb-20">

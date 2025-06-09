@@ -6,16 +6,13 @@ const initialState = {
   isMenuOpen: false,
   gameResult: false,
   guessedLetters: [],
-  keySound: "/minimal-pop-click-ui-3-198303.mp3",
+  keyPressSound: "/minimal-pop-click-ui-3-198303.mp3",
 };
 
 const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
-    resetGame() {
-      return { ...initialState };
-    },
     initializeGame(state, action) {
       const categoryWord = action.payload;
       Object.assign(state, {
@@ -31,11 +28,10 @@ const gameSlice = createSlice({
         (word) => !word.selected
       );
       if (unselectedWords.length === 0) {
-        const resetWords = categoryWord.map((word) => ({
+        const resetWords = state.selectedCategoryWords.map((word) => ({
           ...word,
           selected: false,
         }));
-        state.selectedCategoryWords = resetWords;
         unselectedWords = resetWords;
       }
       if (unselectedWords.length > 0) {
@@ -55,29 +51,27 @@ const gameSlice = createSlice({
       state.gameResult = !state.gameResult;
     },
 
-    updateSelectedWords(state, action) {
-      const word = action.payload;
-      state.selectedCategoryWords = [...state.selectedCategoryWords, word];
-    },
-
     handleGuesses(state, action) {
-      const audio = new Audio(state.keySound);
+      const audio = new Audio(state.keyPressSound);
       const letter = action.payload;
       audio.play();
       state.guessedLetters.push(letter);
     },
-    handleCloseModal(state, action) {
-      const modalState = action.payload;
-      state.isMenuOpen = modalState;
+
+    handleIsMenuOpen(state, action) {
+      state.isMenuOpen = action.payload;
+    },
+
+    resetGame() {
+      return { ...initialState };
     },
   },
 });
 export const {
   resetGame,
   initializeGame,
-  updateSelectedWords,
   handlePlayAgain,
-  handleCloseModal,
+  handleIsMenuOpen,
   handleGuesses,
   updateGameResult,
 } = gameSlice.actions;
