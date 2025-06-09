@@ -14,5 +14,3 @@ export function PlayButton() {
     </button>
   );
 }
-// shadow-[inset_0_-4px_0_5px_#243041,inset_0_-12px_0_11px_#9d2df5]
-// shadow-[inset_0_-2px_0_3px_#140E66,inset_0_1px_0_6px_#3C74FF]

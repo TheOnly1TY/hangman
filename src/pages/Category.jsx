@@ -9,11 +9,14 @@ export function Category() {
   const handleNavigate = (category) => {
     navigate(`${category}`);
   };
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
 
   return (
     <>
       <header className="md:relative flex items-center justify-between md:justify-center py-15">
-        <BackButton>
+        <BackButton onAction={handleNavigateBack}>
           <img
             src="/icon-back.svg"
             className="w-[17.5px] md:w-[27.91px] lg:w-auto"

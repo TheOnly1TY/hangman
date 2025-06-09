@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { GuideButton } from "../components/GuideButton";
+import { ActionButton } from "../components/ActionButton";
 import { Logo } from "../components/Logo";
 import { PlayButton } from "../components/PlayButton";
 
@@ -14,7 +14,7 @@ export function MainMenu() {
         <Logo />
         <div className="flex justify-center items-center flex-col mt-20 gap-y-15">
           <PlayButton />
-          <GuideButton
+          <ActionButton
             text="How To Play"
             styles="w-[226px]"
             onAction={handleClick}

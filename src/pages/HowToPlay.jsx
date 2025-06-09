@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { BackButton } from "../components/BackButton";
 
 const howToPlaySteps = [
@@ -22,11 +23,15 @@ const howToPlaySteps = [
 ];
 
 export function HowToPlay() {
+  const navigate = useNavigate();
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   return (
     <section className="bg-[url(/background-mobile-dark.svg)] md:bg-[url(/background-tablet-dark.svg)] lg:bg-[url(/background-desktop-dark.svg)] bg-center bg-cover bg-no-repeat min-h-screen">
       <div className="px-[1.5rem] md:max-w-[800px] lg:max-w-[1216px] mx-auto font-display">
         <header className="md:relative flex items-center justify-between md:justify-center py-15">
-          <BackButton>
+          <BackButton onAction={handleNavigateBack}>
             <img
               src="/icon-back.svg"
               className="w-[17.5px] md:w-[27.91px] lg:w-auto"

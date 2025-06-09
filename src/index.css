@@ -20,25 +20,3 @@
   -webkit-text-stroke: 8px #243041;
   color: transparent;
 }
-progress {
-  -webkit-appearance: none;
-}
-
-progress::-webkit-progress-bar {
-  background-color: white;
-  border-radius: 999px;
-  overflow: hidden;
-  position: relative;
-}
-
-progress::-webkit-progress-value {
-  border: 4px solid white;
-  border-radius: 999px;
-  background-color: #261676;
-}
-
-@media (width >= 48rem) {
-  progress::-webkit-progress-value {
-    border: 8px solid white;
-  }
-}
