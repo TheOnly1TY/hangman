@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ActionButton } from "./ActionButton";
 import { resetGame } from "../pages/inGame/gameSlice";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 export function Modal({ children, actionLabel, onAction }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ export function Modal({ children, actionLabel, onAction }) {
   };
   return (
     <>
-      <div
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0 }}
         className="fixed z-10 top-1/2 lg:top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2
                   w-[calc(100%-3.2rem)] max-w-[37rem] h-[30.1rem] md:h-[31.25rem] rounded-[3rem] md:rounded-[4.5rem]
                   bg-[linear-gradient(to_bottom,_#344aba,_#001479D4)] shadow-[inset_0_-8px_0_4px_#140E66,inset_0_6px_0_8px_#2463ff]
@@ -42,7 +46,7 @@ export function Modal({ children, actionLabel, onAction }) {
             onAction={handleQuit}
           />
         </div>
-      </div>
+      </motion.div>
 
       <div className="fixed top-0 right-0 left-0 bottom-0 bg-[linear-gradient(to_bottom,rgba(26,4,58,0.7),rgba(21,18,120,0.7),rgba(43,22,119,0.7))] z-0" />
     </>

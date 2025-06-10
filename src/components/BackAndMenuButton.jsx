@@ -1,6 +1,10 @@
+import { motion } from "framer-motion";
+
 export function BackAndMenuButton({ children, style, onAction }) {
   return (
-    <figure
+    <motion.figure
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.8 }}
       onClick={onAction}
       className={`
         relative 
@@ -16,6 +20,6 @@ export function BackAndMenuButton({ children, style, onAction }) {
       `}
     >
       {children}
-    </figure>
+    </motion.figure>
   );
 }

@@ -3,13 +3,19 @@ import { handleIsMenuOpen } from "../gameSlice";
 import { maximumHealth } from "../../../utils/helpers";
 import { useParams } from "react-router-dom";
 import { BackAndMenuButton } from "../../../components/BackAndMenuButton";
+import { motion } from "framer-motion";
 
 export function GameHeader({ incorrectGuesses }) {
   const { selectedCategory } = useParams();
   const dispatch = useDispatch();
 
   return (
-    <header className="flex justify-between items-center py-15">
+    <motion.header
+      initial={{ y: -250 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 120 }}
+      className="flex justify-between items-center py-15"
+    >
       <div className="flex justify-center items-center">
         <BackAndMenuButton
           style="md:static"
@@ -46,6 +52,6 @@ export function GameHeader({ incorrectGuesses }) {
           />
         </figure>
       </div>
-    </header>
+    </motion.header>
   );
 }

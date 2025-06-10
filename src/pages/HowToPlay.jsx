@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { BackAndMenuButton } from "../components/BackAndMenuButton";
+import { motion } from "framer-motion";
 
 const howToPlaySteps = [
   {
@@ -30,7 +31,13 @@ export function HowToPlay() {
   return (
     <section className="bg-[url(/background-mobile-dark.svg)] md:bg-[url(/background-tablet-dark.svg)] lg:bg-[url(/background-desktop-dark.svg)] bg-center bg-cover bg-no-repeat min-h-screen">
       <div className="px-[1.5rem] md:max-w-[800px] lg:max-w-[1216px] mx-auto font-display">
-        <header className="md:relative flex items-center justify-between md:justify-center py-15">
+        <motion.header
+          initial={{ y: -250 }}
+          animate={{ y: 0 }}
+          exit={{ y: -250 }}
+          transition={{ type: "spring", stiffness: 120 }}
+          className="md:relative flex items-center justify-between md:justify-center py-15"
+        >
           <BackAndMenuButton onAction={handleNavigateBack}>
             <img
               src="/icon-back.svg"
@@ -40,11 +47,20 @@ export function HowToPlay() {
           <h1 className="text-5xl md:text-[6.5rem] lg:text-[8.5rem] leading-none font-normal -tracking-[0.5%] text-gradient-stroke">
             How to Play
           </h1>
-        </header>
+        </motion.header>
 
         <ul className="flex justify-center items-stretch flex-col lg:flex-row gap-8 pb-20">
           {howToPlaySteps.map((data) => (
-            <li
+            <motion.li
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -15 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                type: "spring",
+                stiffness: 200,
+              }}
               key={data.step}
               className="flex flex-col justify-center md:flex-row md:items-center lg:flex-col lg:justify-start w-full lg:w-[24rem] min-h-[11.6rem] md:min-h-[12.5rem] lg:min-h-[34.4rem] p-8 lg:px-12 lg:py-[3.75rem] bg-white rounded-[1.25rem] md:rounded-[2.5rem] lg:text-center md:gap-10 lg:gap-0"
             >
@@ -67,7 +83,7 @@ export function HowToPlay() {
                   {data.description}
                 </p>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

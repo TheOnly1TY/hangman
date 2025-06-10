@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { handleGuesses } from "../gameSlice";
 import { Alphabets } from "../../../utils/helpers";
+import { motion } from "framer-motion";
 
 export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
   const dispatch = useDispatch();
@@ -8,7 +9,17 @@ export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
   return (
     <div className="grid grid-cols-9 lg:gap-6 md:gap-x-4 gap-x-2 gap-y-6 py-20 lg:py-30">
       {Alphabets.map((letter, index) => (
-        <button
+        <motion.button
+          initial={{ y: 40 }}
+          animate={{ y: 0 }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            type: "spring",
+            stiffness: 200,
+          }}
           onClick={() => dispatch(handleGuesses(letter))}
           disabled={
             guessedLetters.includes(letter) || allLettersGuessed || healthUsedUp
@@ -23,7 +34,7 @@ export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
           key={index}
         >
           {letter}
-        </button>
+        </motion.button>
       ))}
     </div>
   );
