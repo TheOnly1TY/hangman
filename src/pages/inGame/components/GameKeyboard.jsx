@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
   const dispatch = useDispatch();
   const guessedLetters = useSelector((state) => state.game.guessedLetters);
+
+  const handleLetterClicked = (letter) => {
+    const audio = new Audio("/minimal-pop-click-ui-3-198303.mp3");
+    audio.play();
+    dispatch(handleGuesses(letter));
+  };
   return (
     <div className="grid grid-cols-9 lg:gap-6 md:gap-x-4 gap-x-2 gap-y-6 py-20 lg:py-30">
       {Alphabets.map((letter, index) => (
@@ -20,7 +26,7 @@ export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
             type: "spring",
             stiffness: 200,
           }}
-          onClick={() => dispatch(handleGuesses(letter))}
+          onClick={() => handleLetterClicked(letter)}
           disabled={
             guessedLetters.includes(letter) || allLettersGuessed || healthUsedUp
               ? true

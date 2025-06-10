@@ -6,7 +6,6 @@ const initialState = {
   isMenuOpen: false,
   gameResult: false,
   guessedLetters: [],
-  keyPressSound: "/minimal-pop-click-ui-3-198303.mp3",
 };
 
 const gameSlice = createSlice({
@@ -52,9 +51,7 @@ const gameSlice = createSlice({
     },
 
     handleGuesses(state, action) {
-      const audio = new Audio(state.keyPressSound);
       const letter = action.payload;
-      audio.play();
       state.guessedLetters.push(letter);
     },
 
