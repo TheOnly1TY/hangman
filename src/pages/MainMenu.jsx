@@ -7,7 +7,7 @@ import { motion, scale } from "framer-motion";
 export function MainMenu() {
   const navigate = useNavigate();
   const handleNavigateSteps = () => {
-    navigate("/guide");
+    navigate("/HowToPlay");
   };
   return (
     <div className="bg-[url(/background-mobile.svg)] md:bg-[url(/background-tablet.svg)] lg:bg-[url(/background-desktop.svg)] bg-center bg-cover bg-no-repeat min-h-screen flex justify-center items-center pt-45 pb-30">
