@@ -52,6 +52,8 @@ const gameSlice = createSlice({
 
     handleGuesses(state, action) {
       const letter = action.payload;
+
+      if (state.guessedLetters.includes(letter)) return;
       state.guessedLetters.push(letter);
     },
 

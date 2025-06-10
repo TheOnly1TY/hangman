@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleGuesses } from "../gameSlice";
 import { Alphabets } from "../../../utils/helpers";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
   const dispatch = useDispatch();
@@ -12,6 +13,21 @@ export function GameKeyboard({ allLettersGuessed, healthUsedUp }) {
     audio.play();
     dispatch(handleGuesses(letter));
   };
+
+  // GET LETTERS BASED ON KEYPRESS ON THE KEYBOARD
+  useEffect(() => {
+    const letterRegex = /[a-zA-Z]/;
+    document.addEventListener("keydown", getKey);
+    function getKey(e) {
+      if (!letterRegex.test(e.key) || e.key.length > 1) return;
+      dispatch(handleGuesses(e.key.toLowerCase()));
+    }
+
+    return () => {
+      document.removeEventListener("keydown", getKey);
+    };
+  }, [dispatch]);
+
   return (
     <div className="grid grid-cols-9 lg:gap-6 md:gap-x-4 gap-x-2 gap-y-6 py-20 lg:py-30">
       {Alphabets.map((letter, index) => (
