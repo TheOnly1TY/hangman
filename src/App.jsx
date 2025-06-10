@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainMenu />} />
-        <Route path="/guide" element={<HowToPlay />} />
+        <Route path="guide" element={<HowToPlay />} />
         <Route path="/category" element={<CategoryLayout />}>
           <Route index element={<Category />} />
           <Route path=":selectedCategory" element={<InGame />} />
